@@ -1,0 +1,118 @@
+@font-face {
+  font-family: KOHO;
+  src: url("./assets/Fonts/KoHo/KoHo-Regular.ttf");
+}
+@font-face {
+  font-family: KOHO_bold;
+  src: url("./assets/Fonts/KoHo/KoHo-Bold.ttf");
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: KoHo;
+}
+.ResbarIcon {
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  display: none;
+  cursor: pointer;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.closeclass {
+  color: #fff;
+}
+@media screen and (max-width: 1500px) {
+  .ResbarIcon {
+    margin-right: 30px;
+  }
+}
+@media screen and (max-width: 830px) {
+  .ResbarIcon {
+    display: flex;
+  }
+}
+/* -----------swiper demos ---------------- */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-slide:nth-child(1) {
+  width: 163px;
+}
+
+.swiper-slide:nth-child(2) {
+  width: 186.05px;
+}
+
+.swiper-slide:nth-child(3) {
+  width: 20%;
+}
+.swiper-slide:nth-child(4) {
+  width: 363.28px;
+}
+.swiper-slide:nth-child(5) {
+  width: 223.81px;
+}
+.swiper-button-next {
+  background-color: #f8e3b4;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border-bottom: 4px solid #d88f48;
+}
+.swiper-button-next::after {
+  font-size: 10px;
+  font-weight: bolder;
+  color: #000;
+}
+.swiper-button-prev {
+  background-color: #f8e3b4;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border-bottom: 4px solid #d88f48;
+}
+.swiper-button-prev::after {
+  font-size: 10px;
+  font-weight: bolder;
+  color: #000;
+}
+
+/* MUI Button */
+.MuiButton-root {
+  text-transform: none !important;
+}
