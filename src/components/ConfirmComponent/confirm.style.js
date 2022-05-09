@@ -26,42 +26,35 @@ export const CusBtn = styled.div`
 `;
 
 export const ZapModal = styled.div`
-  padding: 20px 0;
-  position: fixed;
   width: 100vw;
-  height: 100vh;
-  overflow: auto;
   top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   left: 0;
+  max-height: 100vh;
+  overflow: auto;
+  position: fixed;
+  padding: 0;
 `;
 
 export const ZapBack = styled.div`
   position: fixed;
-  /* width: 100vw; */
-  /* height: 100vh; */
+  width: 100vw;
+  height: 100vh;
   top: 0;
-  right: 0;
-  bottom: 0;
+  /* right: 0; */
+  /* bottom: 0; */
   z-index: 101;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(208, 220, 232, 0.6);
 `;
 
 export const ZapModalBody = styled.div`
   z-index: 105;
-  position: absolute;
-  top: 20px;
-  margin-bottom: 20px;
-  background-color: #000;
-  /* border: 1px solid red; */
-  height: fit-content;
-  padding: 20px 25px 40px;
-  text-align: center;
+  position: relative;
+  margin: 30px auto;
   width: 600px;
-  border-radius: 10px;
+  border-radius: 30px;
+  padding: 20px 25px 40px;
+  background-color: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,55 +63,6 @@ export const ZapModalBody = styled.div`
   }
 `;
 
-export const ZapTitle = styled.div`
-  font-size: 23px;
-  font-family: ChakraBold;
-  margin-bottom: 30px;
-`;
-export const SelectBottomLabel = styled.div`
-  width: 100%;
-  text-align: left;
-  font-size: 14px;
-  font-weight: 500;
-  color: #370701;
-  font-family: ChakraBold;
-  margin: 10px 0 30px;
-  margin-left: 10px;
-  span {
-    color: #ff8718;
-  }
-`;
-export const CusInputPart = styled.div`
-  width: 100%;
-  height: 50px;
-  font-family: ChakraBold;
-  border-radius: 10px;
-  border: 1px solid #694b48;
-  border-bottom: 3px solid #694b48;
-  padding-left: 20px;
-  padding-right: 5px;
-  display: flex;
-  align-items: center;
-`;
-export const CusInput = styled.input`
-  width: 100%;
-  border: none;
-  height: 95%;
-  font-size: 16px;
-  :focus,
-  :active {
-    outline: none;
-  }
-`;
-
-export const MaxBtn = styled.div`
-  min-width: 100px;
-  margin-left: 15px;
-`;
-export const GoBtn = styled.div`
-  width: 100%;
-  margin-top: 30px;
-`;
 export const CloseBtn = styled.div`
   width: 100%;
   display: flex;

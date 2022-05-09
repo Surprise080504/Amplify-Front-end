@@ -47,7 +47,7 @@ export const ZapBack = styled.div`
   bottom: 0;
   z-index: 101;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(208, 220, 232, 0.6);
 `;
 
 export const ZapModalBody = styled.div`

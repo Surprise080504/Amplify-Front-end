@@ -13,6 +13,14 @@ import {
 } from "./markets.style";
 
 export default function MarketsContainer() {
+  const cardData = [
+    ["00K", "Total Supply", "00k"],
+    ["00K", "Total Borrow", "00k"],
+    ["00K", "Utilization", "00k"],
+    ["00K", "Supply APR", "00k"],
+    ["00K", "Borrow APR", "00k"],
+    ["00K", "Farming APR", "00k"],
+  ];
   return (
     <HomeOut>
       <Link to="/">
@@ -51,7 +59,7 @@ export default function MarketsContainer() {
       </MarketTopPart>
       <CardContainer>
         {[...Array(6)].map((e, index) => (
-          <MarketCard key={index} />
+          <MarketCard key={index} data={cardData} />
         ))}
       </CardContainer>
     </HomeOut>

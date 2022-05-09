@@ -16,7 +16,7 @@ import {
   ArrowValue,
 } from "./markcard.style";
 
-export default function CardContainer() {
+export default function CardContainer({ data }) {
   const content = (
     <>
       <Cardlogo src="img/cardlogo.png" alt="" draggable={false} />
@@ -24,11 +24,11 @@ export default function CardContainer() {
       <CardValue>XXX\XXX</CardValue>
       <TwoCardImg src="img/twocard.png" alt="" draggable={false} />
       <CardItems>
-        {[...Array(6)].map((e, index) => (
+        {data.map((e, index) => (
           <CardItem key={index}>
-            <Dollar>$ 00K</Dollar>
-            <SupplyText>Total Supply</SupplyText>
-            <Dollar>$ 00K</Dollar>
+            <Dollar>$ {e[0]}</Dollar>
+            <SupplyText>{e[1]}</SupplyText>
+            <Dollar>$ {e[2]}</Dollar>
           </CardItem>
         ))}
       </CardItems>
