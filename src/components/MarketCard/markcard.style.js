@@ -23,6 +23,9 @@ export const CardTitle = styled.div`
   letter-spacing: 0.003em;
   margin: 12px 0 3px 0;
   color: #ffffff;
+  ::first-letter {
+    text-transform: uppercase;
+  }
 `;
 export const CardValue = styled.div`
   font-weight: 400;

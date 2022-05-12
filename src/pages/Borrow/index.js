@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CustomBtn from "../../components/BtnComponent";
 import OutlineBtn from "../../components/OutlineComponent";
 import DepositModal from "../../components/ConfirmComponent";
 import { Link } from "react-router-dom";
-
+import { cardData } from "../../data";
 import {
   HomeOut,
   BorrowTitle,
@@ -19,14 +19,6 @@ import {
   BorrowValue,
   SupplyText,
 } from "./borrow.style";
-const ItemArr = [
-  "Total Supply",
-  "Total Borrow",
-  "Utilization",
-  "Supply APR",
-  "Borrow APR",
-  "Farming APR",
-];
 const Values = {
   start_liquid_Price: 1.01,
   end_liquid_Price: 3.08,
@@ -37,21 +29,28 @@ const Values = {
   borrow_apr: -15,
   estimated_apr: 109,
 };
-export default function MarketsContainer() {
+export default function MarketsContainer(props) {
   const [visible, setVisible] = useState(false);
   const [modalValues, setModalValues] = useState(Values);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const marketName = props.match.params.marketName;
+    setItems(cardData.filter((e) => e.marketName === marketName)[0]);
+  }, []);
+
   return (
     <HomeOut>
       <Link to="/">
         <HideTitle>AMPLIFY</HideTitle>
       </Link>
-      <BorrowTitle>Borrow</BorrowTitle>
+      <BorrowTitle>{items.marketName}</BorrowTitle>
       <BorrowContainer>
-        {ItemArr.map((e, index) => (
+        {items.marketData?.map((e, index) => (
           <BorrowCard key={index}>
-            <BorrowValue direct="left">$00K</BorrowValue>
-            <SupplyText>{e}</SupplyText>
-            <BorrowValue direct="right">$00K</BorrowValue>
+            <BorrowValue direct="left">${e.lValue.toUpperCase()}</BorrowValue>
+            <SupplyText>{e.label}</SupplyText>
+            <BorrowValue direct="right">${e.rValue.toUpperCase()}</BorrowValue>
           </BorrowCard>
         ))}
       </BorrowContainer>

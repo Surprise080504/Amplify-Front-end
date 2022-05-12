@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const CusBtn = styled.div`
   .MuiButton-containedPrimary {
     border-radius: 50px;
-    width: 200px;
-    height: 48px;
+    width: ${(props) => `${props.width}px`};
+    height: ${(props) => `${props.height}px`};
     border-width: 0 0 4px;
     color: #000;
     font-family: KOHO_bold;
@@ -21,7 +21,7 @@ export const CusBtn = styled.div`
       background-color: #0345c9 !important;
     }
     @media screen and (max-width: 450px) {
-      width: 160px;
+      width: ${(props) => (props.width < 200 ? props.width + "px" : "160px")};
       font-size: 20px;
     }
   }

@@ -22,3 +22,10 @@ export const CusBtn = styled.div`
     }
   }
 `;
+export const Btns = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 30px;
+  column-gap: 20px;
+`;

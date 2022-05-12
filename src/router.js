@@ -32,8 +32,8 @@ const AppRouter = () => {
         <Suspense fallback={loader}>
           <Route exact path="/" component={Home} />
           <Route exact path="/markets" component={Markets} />
-          <Route exact path="/borrow" component={Borrow} />
-          <Route exact path="/lend" component={Lend} />
+          <Route exact path="/:marketName/borrow" component={Borrow} />
+          <Route exact path="/:marketName/lend" component={Lend} />
           <Route exact path="/xampl" component={XAMPL} />
         </Suspense>
       </Switch>

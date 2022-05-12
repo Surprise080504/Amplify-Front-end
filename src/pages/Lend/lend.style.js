@@ -18,6 +18,9 @@ export const BorrowTitle = styled.div`
   letter-spacing: 0.003em;
   margin-top: 30px;
   color: #ffffff;
+  ::first-letter {
+    text-transform: uppercase;
+  }
   @media screen and (max-width: 500px) {
     font-size: 24px;
     margin-top: 0;

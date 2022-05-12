@@ -1,5 +1,7 @@
 import React from "react";
 import HoverCard from "../CardComponent";
+import CustomBtn from "../BtnComponent";
+import OutlineBtn from "../OutlineComponent";
 import {
   CardOut,
   Cardlogo,
@@ -16,19 +18,19 @@ import {
   ArrowValue,
 } from "./markcard.style";
 
-export default function CardContainer({ data }) {
+export default function CardContainer({ data, name }) {
   const content = (
     <>
       <Cardlogo src="img/cardlogo.png" alt="" draggable={false} />
-      <CardTitle>Market</CardTitle>
+      <CardTitle>{name}</CardTitle>
       <CardValue>XXX\XXX</CardValue>
       <TwoCardImg src="img/twocard.png" alt="" draggable={false} />
       <CardItems>
         {data.map((e, index) => (
           <CardItem key={index}>
-            <Dollar>$ {e[0]}</Dollar>
-            <SupplyText>{e[1]}</SupplyText>
-            <Dollar>$ {e[2]}</Dollar>
+            <Dollar>$ {e.lValue}</Dollar>
+            <SupplyText>{e.label}</SupplyText>
+            <Dollar>$ {e.rValue}</Dollar>
           </CardItem>
         ))}
       </CardItems>
@@ -48,5 +50,5 @@ export default function CardContainer({ data }) {
       </ArrowPart>
     </>
   );
-  return <HoverCard body={content} />;
+  return <HoverCard body={content} data={data} name={name} />;
 }

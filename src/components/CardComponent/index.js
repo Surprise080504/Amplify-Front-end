@@ -1,22 +1,40 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import { CusBtn } from "./hovercard.style";
+import CustomBtn from "../BtnComponent";
+import { CusBtn, Btns } from "./hovercard.style";
 import { Link } from "react-router-dom";
 
 export default function HoverCardContainer({
-  text,
-  clickFunc,
+  name,
   body,
   disabled = false,
   width = "350px",
 }) {
   return (
-    <Link to="/borrow">
-      <CusBtn width={width}>
+    // <Link to="/borrow">
+    <CusBtn width={width}>
+      <Link to={`${name}/borrow`}>
         <Button variant="text" disabled={disabled}>
           {body}
         </Button>
-      </CusBtn>
-    </Link>
+      </Link>
+      <Btns>
+        <Link to={`${name}/borrow`}>
+          <CustomBtn
+            text="BORROW"
+            width={130}
+            clickFunc={() => console.log("first")}
+          />
+        </Link>
+        <Link to={`${name}/lend`}>
+          <CustomBtn
+            text="LEND"
+            width={130}
+            clickFunc={() => console.log("first")}
+          />
+        </Link>
+      </Btns>
+    </CusBtn>
+    // </Link>
   );
 }

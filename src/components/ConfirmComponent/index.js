@@ -1,6 +1,7 @@
 import React from "react";
 import CustomBtn from "../BtnComponent";
 import OutBtn from "../OutlineComponent";
+import { MdClose } from "react-icons/md";
 import {
   ZapModal,
   ZapModalBody,
@@ -14,7 +15,8 @@ import {
   LiqPart,
   LeveBtn,
 } from "./confirm.style";
-import { MdClose } from "react-icons/md";
+import CardArrow from "../../assets/Img/cardarrow.png";
+import ModalImg from "../../assets/Img/modaImg.png";
 
 export default function ConfirmContainer({ visible, closeFunc, value }) {
   return (
@@ -31,7 +33,7 @@ export default function ConfirmContainer({ visible, closeFunc, value }) {
             <CirclePart>
               <Xpart>
                 <span>1x</span>
-                <ArrowImg src="img/cardarrow.png" alt="" />
+                <ArrowImg src={CardArrow} alt="" />
                 <span>3x</span>
               </Xpart>
               CURRENT LEVERAGE
@@ -50,7 +52,7 @@ export default function ConfirmContainer({ visible, closeFunc, value }) {
               <br />
               TKN/TKN
             </LiqPart>
-            <ArrowImg src="img/modaImg.png" alt="" mt="38px" width="300px" />
+            <ArrowImg src={ModalImg} alt="" mt="38px" width="300px" />
             <Values>
               Slippage
               <br />

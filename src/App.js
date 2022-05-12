@@ -28,10 +28,10 @@ function App() {
         setCurrentAcc(accs[0]);
       });
       ethereum.on("chainChanged", (chainId) => {
-        if (chainId === "0x1") {
-          toast("Ethereum mainnet connected successfully");
+        if (chainId === "0x19") {
+          toast("Cronos network connected successfully");
         } else {
-          toast.error("Please connect to Ethereum Mainnet", {
+          toast.error("Please switch to Cronos network", {
             theme: "dark",
           });
         }

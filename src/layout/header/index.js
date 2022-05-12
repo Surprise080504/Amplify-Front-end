@@ -11,6 +11,8 @@ import {
   Tabs,
   HeaderTab,
 } from "./header.style";
+import NON_ConnectImg from "../../assets/Img/non_connect.png";
+import ConnectImg from "../../assets/Img/connected.png";
 
 export default function HeaderContainer() {
   const { provider, currentAcc } = useEthContext();
@@ -22,8 +24,8 @@ export default function HeaderContainer() {
 
   const handleConnectWallet = async () => {
     if (provider) {
-      if (Number(window.ethereum.chainId) !== 1) {
-        toast.error("Please change to Ethereum Mainnet", {
+      if (Number(window.ethereum.chainId) !== 25) {
+        toast.error("Please switch to Cronos network", {
           theme: "dark",
         });
       } else {
@@ -43,7 +45,11 @@ export default function HeaderContainer() {
           <Left>{currentAcc ? `AMPLIFY` : ""}</Left>
         </Link>
         <Right onClick={handleConnectWallet}>
-          <WalletImg src="img/non_connect.png" alt="" draggable={false} />
+          <WalletImg
+            src={currentAcc ? ConnectImg : NON_ConnectImg}
+            alt=""
+            draggable={false}
+          />
           {currentAcc
             ? `${currentAcc.substring(0, 5)}...${currentAcc.substring(39)}`
             : "CONNECT"}
@@ -59,7 +65,7 @@ export default function HeaderContainer() {
               Markets
             </HeaderTab>
           </Link>
-          <Link to="/borrow">
+          {/* <Link to="/borrow">
             <HeaderTab
               active={active === 1 && true}
               onClick={() => ChangeActive(1)}
@@ -74,7 +80,7 @@ export default function HeaderContainer() {
             >
               Lend
             </HeaderTab>
-          </Link>
+          </Link> */}
           <Link to="/xampl">
             <HeaderTab
               active={active === 3 && true}

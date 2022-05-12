@@ -29,7 +29,7 @@ export default function HomeContainer() {
           <OutlineBtn text="MARKETS" clickFunc={() => ShowToast()} />
         )}
 
-        {currentAcc ? (
+        {/* {currentAcc ? (
           <Link to="/borrow">
             <OutlineBtn
               text="BORROW"
@@ -48,7 +48,7 @@ export default function HomeContainer() {
           </Link>
         ) : (
           <OutlineBtn text="LEND" clickFunc={() => ShowToast()} />
-        )}
+        )} */}
         {currentAcc ? (
           <Link to="/xampl">
             <OutlineBtn

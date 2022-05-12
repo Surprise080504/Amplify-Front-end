@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CustomBtn from "../../components/BtnComponent";
 import OutlineBtn from "../../components/OutlineComponent";
 import LendModal from "../../components/LendModal";
-
+import { cardData } from "../../data";
 import {
   HomeOut,
   BorrowTitle,
@@ -35,21 +35,28 @@ const ItemArr = [
   "Borrow APR",
   "Farming APR",
 ];
-export default function MarketsContainer() {
+export default function MarketsContainer(props) {
   const [visible, setVisible] = useState(false);
   const [balance, setbalance] = useState(123.1);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const marketName = props.match.params.marketName;
+    setItems(cardData.filter((e) => e.marketName === marketName)[0]);
+  }, []);
+
   return (
     <HomeOut>
       <Link to="/">
         <HideTitle>AMPLIFY</HideTitle>
       </Link>
-      <BorrowTitle>Lend</BorrowTitle>
+      <BorrowTitle>{items.marketName}</BorrowTitle>
       <BorrowContainer>
-        {ItemArr.map((e, index) => (
+        {items.marketData?.map((e, index) => (
           <BorrowCard key={index}>
-            <BorrowValue direct="left">$00K</BorrowValue>
-            <SupplyText>{e}</SupplyText>
-            <BorrowValue direct="right">$00K</BorrowValue>
+            <BorrowValue direct="left">${e.lValue.toUpperCase()}</BorrowValue>
+            <SupplyText>{e.label}</SupplyText>
+            <BorrowValue direct="right">${e.rValue.toUpperCase()}</BorrowValue>
           </BorrowCard>
         ))}
       </BorrowContainer>
