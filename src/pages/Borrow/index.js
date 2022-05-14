@@ -33,11 +33,21 @@ export default function MarketsContainer(props) {
   const [visible, setVisible] = useState(false);
   const [modalValues, setModalValues] = useState(Values);
   const [items, setItems] = useState([]);
+  const [btnFlag, setBtnFlag] = useState(false);
+  const [sliderValue, setSliderValue] = useState({
+    startValue: 0,
+    endValue: 50,
+  });
 
   useEffect(() => {
     const marketName = props.match.params.marketName;
     setItems(cardData.filter((e) => e.marketName === marketName)[0]);
   }, []);
+
+  const ModalClickFunc = (flag) => {
+    setVisible(true);
+    setBtnFlag(flag ? true : false);
+  };
 
   return (
     <HomeOut>
@@ -62,20 +72,25 @@ export default function MarketsContainer(props) {
         </LP>
         <Btns>
           <OutlineBtn text="DEPOSIT" clickFunc={() => setVisible(true)} />
-          <CustomBtn text="LEVERAGE" clickFunc={() => setVisible(true)} />
+          <CustomBtn text="LEVERAGE" clickFunc={() => ModalClickFunc(true)} />
           <CustomBtn text="WITHDRAW" clickFunc={() => setVisible(true)} />
-          <OutlineBtn text="DELEVERAGE" clickFunc={() => setVisible(true)} />
+          <OutlineBtn
+            text="DELEVERAGE"
+            clickFunc={() => ModalClickFunc(false)}
+          />
         </Btns>
         <QuesImg src="img/ques.png" alt="" draggable={false} />
       </LPTokenPart>
       <ResBtns>
         <OutlineBtn text="DEPOSIT" clickFunc={() => setVisible(true)} />
-        <OutlineBtn text="LEVERAGE" clickFunc={() => setVisible(true)} />
+        <OutlineBtn text="LEVERAGE" clickFunc={() => ModalClickFunc(true)} />
         <OutlineBtn text="WITHDRAW" clickFunc={() => setVisible(true)} />
-        <OutlineBtn text="DELEVERAGE" clickFunc={() => setVisible(true)} />
+        <OutlineBtn text="DELEVERAGE" clickFunc={() => ModalClickFunc(false)} />
       </ResBtns>
       <DepositModal
         visible={visible}
+        btnFlag={btnFlag}
+        sliderValue={sliderValue}
         closeFunc={() => setVisible(false)}
         value={modalValues}
       />

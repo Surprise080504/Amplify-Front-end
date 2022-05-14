@@ -6,6 +6,14 @@
   font-family: KOHO_bold;
   src: url("./assets/Fonts/KoHo/KoHo-Bold.ttf");
 }
+@font-face {
+  font-family: Montserrat;
+  src: url("./assets/Fonts/Montserrat/static/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: MontserratBold;
+  src: url("./assets/Fonts/Montserrat/static/Montserrat-Bold.ttf");
+}
 a {
   text-decoration: none;
 }

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CustomBtn from "../BtnComponent";
 import OutBtn from "../OutlineComponent";
 import { MdClose } from "react-icons/md";
+import Slider from "@mui/material/Slider";
 import {
   ZapModal,
   ZapModalBody,
@@ -14,11 +15,37 @@ import {
   Values,
   LiqPart,
   LeveBtn,
+  SliderPart,
+  InputPart,
+  MaxBtn,
+  CusInput,
 } from "./confirm.style";
 import CardArrow from "../../assets/Img/cardarrow.png";
 import ModalImg from "../../assets/Img/modaImg.png";
 
-export default function ConfirmContainer({ visible, closeFunc, value }) {
+export default function ConfirmContainer({
+  visible,
+  closeFunc,
+  value,
+  btnFlag,
+  sliderValue,
+}) {
+  const [flag, setFlag] = useState(false);
+  const [slidervalue, setValue] = useState();
+  useEffect(() => {
+    setFlag(btnFlag);
+    setValue(sliderValue.startValue);
+  }, [btnFlag]);
+
+  const handleChange = (e) => {
+    if (
+      !isNaN(e.target.value) &&
+      e.target.value <= sliderValue.endValue &&
+      e.target.value >= sliderValue.startValue
+    ) {
+      setValue(e.target.value);
+    }
+  };
   return (
     <>
       {visible && (
@@ -67,6 +94,26 @@ export default function ConfirmContainer({ visible, closeFunc, value }) {
               Estimated APR: {value.estimated_apr}%
               <br />
             </Values>
+            <SliderPart>
+              <InputPart>
+                <MaxBtn onClick={() => setValue(sliderValue.endValue)}>
+                  MAX
+                </MaxBtn>
+                <CusInput
+                  type="number"
+                  value={slidervalue}
+                  onChange={(e) => handleChange(e)}
+                />
+              </InputPart>
+              <Slider
+                aria-label="Volume"
+                value={slidervalue}
+                onChange={handleChange}
+                min={sliderValue.startValue}
+                max={sliderValue.endValue}
+                step={0.01}
+              />
+            </SliderPart>
             <Btns>
               <CustomBtn
                 text="APPROVE"
@@ -80,8 +127,8 @@ export default function ConfirmContainer({ visible, closeFunc, value }) {
             </Btns>
             <LeveBtn>
               <OutBtn
-                text="LEVERAGE"
-                clickFunc={() => console.log("clicked!")}
+                text={flag ? "LEVERAGE" : "DELEVERAGE"}
+                clickFunc={() => console.log(`Valuse is `, slidervalue)}
               />
             </LeveBtn>
           </ZapModalBody>

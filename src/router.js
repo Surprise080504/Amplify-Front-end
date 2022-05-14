@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 
 /****site route*****/
 import Header from "./layout/header";
@@ -9,6 +9,7 @@ const Markets = lazy(() => import("./pages/Markets"));
 const Borrow = lazy(() => import("./pages/Borrow"));
 const Lend = lazy(() => import("./pages/Lend"));
 const XAMPL = lazy(() => import("./pages/xAMPL"));
+const LandingPage = lazy(() => import("./pages/LandingPage"));
 
 const loader = (
   <div
@@ -25,9 +26,10 @@ const loader = (
 );
 
 const AppRouter = () => {
+  const location = useLocation();
   return (
     <React.Fragment>
-      <Header />
+      {location.pathname !== "/home" && <Header />}
       <Switch>
         <Suspense fallback={loader}>
           <Route exact path="/" component={Home} />
@@ -35,6 +37,7 @@ const AppRouter = () => {
           <Route exact path="/:marketName/borrow" component={Borrow} />
           <Route exact path="/:marketName/lend" component={Lend} />
           <Route exact path="/xampl" component={XAMPL} />
+          <Route exact path="/home" component={LandingPage} />
         </Suspense>
       </Switch>
     </React.Fragment>

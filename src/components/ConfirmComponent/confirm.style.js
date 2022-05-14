@@ -136,3 +136,42 @@ export const Btns = styled.div`
 export const LeveBtn = styled.div`
   margin-top: 10px;
 `;
+export const SliderPart = styled.div`
+  width: 80%;
+  margin-top: 30px;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
+`;
+export const InputPart = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+`;
+export const MaxBtn = styled.div`
+  height: 80%;
+  background-color: #000;
+  width: 80px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+`;
+export const CusInput = styled.input`
+  outline: none;
+  border-radius: 10px;
+  width: 100%;
+  border-style: none;
+  font-weight: bolder;
+  text-align: right;
+  padding-right: 10px;
+  height: 100%;
+  font-size: 22px;
+`;
